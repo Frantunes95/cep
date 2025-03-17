@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import { TextInput, Text, Button } from 'react-native-paper';
+import { StyleSheet, View, ScrollView } from 'react-native';
+import { TextInput, Text, Button, List } from 'react-native-paper';
 import { useState } from 'react';
 
 export default function App() {
@@ -43,7 +43,7 @@ export default function App() {
   }
 
   return (
-    
+    <ScrollView>
       <View style={styles.container}>
         <Text>Via Cep</Text>
 
@@ -69,6 +69,7 @@ export default function App() {
           onChangeText={(value) => { setRua(value) }}
           editable={false}
           multiline={true}
+          style={{marginTop:5}}
         />
 
         <TextInput
@@ -76,6 +77,7 @@ export default function App() {
           mode='outlined'
           value={numero}
           onChangeText={(value) => { setNumero(value) }}
+          style={{marginTop:5}}
         />
 
         <TextInput
@@ -83,6 +85,7 @@ export default function App() {
           mode='outlined'
           value={complemento}
           onChangeText={(value) => { setComplemento(value) }}
+          style={{marginTop:5}}
         />
 
         <TextInput
@@ -90,8 +93,9 @@ export default function App() {
           mode='outlined'
           value={bairro}
           onChangeText={(value) => { setBairro(value) }}
-          editable={false}
+          editable={true}
           multiline={true}
+          style={{marginTop:5}}
         />
 
         <TextInput
@@ -99,7 +103,8 @@ export default function App() {
           mode='outlined'
           value={cidade}
           onChangeText={(value) => { setCidade(value) }}
-          editable={false}
+          editable={true}
+          style={{marginTop:5}}
         />
 
         <TextInput
@@ -107,7 +112,8 @@ export default function App() {
           mode='outlined'
           value={estado}
           onChangeText={(value) => { setEstado(value) }}
-          editable={false}
+          editable={true}
+          style={{marginTop:5}}
         />
 
         <TextInput
@@ -115,10 +121,49 @@ export default function App() {
           mode='outlined'
           value={regiao}
           onChangeText={(value) => { setRegiao(value) }}
-          editable={false}
+          editable={true}
+          style={{marginTop:5}}
         />
+
+        <List.Section title="Estado">
+          <List.Accordion
+            title="Selecione o Estado"
+            >
+
+              <List.Item title="AC"/>
+              <List.Item title="AL"/>
+              <List.Item title="AP"/>
+              <List.Item title="AM"/>
+              <List.Item title="BA"/>
+              <List.Item title="CE"/>
+              <List.Item title="DF"/>
+              <List.Item title="ES"/>
+              <List.Item title="GO"/>
+              <List.Item title="MA"/>
+              <List.Item title="MS"/>
+              <List.Item title="MT"/>
+              <List.Item title="MG"/>
+              <List.Item title="PA"/>
+              <List.Item title="PB"/>
+              <List.Item title="PR"/>
+              <List.Item title="PE"/>
+              <List.Item title="PI"/>
+              <List.Item title="RJ"/>
+              <List.Item title="RN"/>
+              <List.Item title="RS"/>
+              <List.Item title="RO"/>
+              <List.Item title="RR"/>
+              <List.Item title="SC"/>
+              <List.Item title="SP"/>
+              <List.Item title="SE"/>
+              <List.Item title="TO"/>
+            
+          </List.Accordion>
+
+        </List.Section>
         <StatusBar style="auto" />
       </View>
+      </ScrollView>
     
   );
 }
